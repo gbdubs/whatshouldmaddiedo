@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WSMD | What Should Maddie Do?</title>
+</head>
+<body class="question">
+
+    <div class="info-box">
+        <span id="info-box-toggle">i</span>
+        <div id="info-box-body" style="display: none">
+            Maddie Dollins is one of the smartest people I know.  She is inquisitive, kind, thoughtful and deliberate.
+            Sometimes too deliberate. Even though many choices in our lives should be shared, examined and discussed,
+            and we gain a sense of community and mutual understanding through these kinds of excercies in empathetic
+            thinking, questions like "Should I get milk?", "What if they are out of chocolate?", and
+            "Should I throw my milk away?" are probably better left for the indivdual to decide.  Thus, for those who
+            always carefully consider every decision, there is the WSMD ("What Should Maddie Do?") generator, availible
+            on all devices + browsers.  For more work, check out my <a href="http://www.github.io/gbdubs">github</a>!
+        </div>
+    </div>
+
+        <div id="big-button" class="big-button">
+            <div class="big-button-inner">
+                <div id="big-button-component">
+                    <div class="component-1"></div>
+                    <div class="component-2"></div>
+                    <div class="component-3"></div>
+                    <div class="component-4"></div>
+                    <div class="component-5"></div>
+                </div>
+            </div>
+        </div>
+
+    <style>
+        body {
+            margin: 0;
+            color: white;
+            text-align: center;
+            transition: background 1s;
+            font-family: sans-serif;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .big-button {
+            display: inline-block;
+            width: 50vw;
+            position: relative;
+            margin-top: 10vh;
+            max-width: 400px;
+            height: 50vw;
+            max-height: 400px;
+            border-radius: 50%;
+            border: 2vw solid white;
+            box-shadow: 2px 5px 20px 10px rgba(0,0,0,0.17);
+            cursor: pointer;
+            transition: all .3s;
+        }
+
+        .big-button:hover, #info-box-toggle:hover {
+            box-shadow: 5px 15px 30px 20px rgba(0,0,0,0.17);
+        }
+
+        .question {
+            background: #4465CE;
+        }
+
+        .big-button-inner {
+            width: Calc(96% - 10px);
+            position: absolute;
+            left: 2%;
+            height: Calc(96% - 10px);
+            top: 2%;
+            border: 5px solid white;
+            border-radius: 50%;
+        }
+
+        #big-button-component {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .question .component-1 {
+            width: 50%;
+            background: white;
+            height: 50%;
+            border-radius: 50%;
+            position: absolute;
+            right: 25%;
+            top: 10%;
+        }
+
+        .question .component-2 {
+            background: #4465CE;
+            width: 40%;
+            height: 40%;
+            border-radius: 50%;
+            position: absolute;
+            right: 30%;
+            top: 15%;
+        }
+
+        .question .component-3 {
+            height: 25%;
+            width: 25%;
+            background: #4465CE;
+            position: absolute;
+            right: 52.5%;
+            top: 35%;
+        }
+
+        .question .component-4 {
+            position: absolute;
+            background: white;
+            width: 5%;
+            height: 15%;
+            left: 47.5%;
+            top: 55%;
+        }
+
+        .question .component-5 {
+            background: white;
+            position: absolute;
+            height: 6%;
+            width: 6%;
+            border-radius: 50%;
+            left: 47%;
+            top: 80%;
+        }
+
+        #info-box-toggle {
+            position: fixed;
+            border: 4px solid white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            bottom: 10px;
+            left: 10px;
+            box-shadow: 2px 5px 20px 5px rgba(0,0,0,0.17);
+            font-size: 35px;
+            cursor: pointer;
+            transition: all .3s;
+        }
+
+        #info-box-body {
+            position: fixed;
+            bottom: 68px;
+            width: Calc(100% - 50px);
+            max-width: 500px;
+            left: 10px;
+            background: inherit;
+            z-index: 1;
+            border: 5px solid white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 2px 5px 20px 5px rgba(0,0,0,0.17);
+            text-align: left;
+            text-indent: 20px;
+        }
+
+        .info-box {
+            background: inherit;
+        }
+
+        body.yes {
+            background: #64A330;
+        }
+
+        .yes .component-1 {
+            background: white;
+            width: 10%;
+            height: 65%;
+            transform: rotate(45deg);
+            position: absolute;
+            left: 50%;
+            top: 20%;
+        }
+
+        .yes .component-2 {
+            width: 10%;
+            height: 21%;
+            background: white;
+            transform: rotate(-45deg);
+            position: absolute;
+            left: 23%;
+            top: 54%;
+        }
+
+        body.no {
+            background: #B23A44;
+        }
+
+        .no #big-button-component {
+            transform: rotate(45deg);
+        }
+
+        .no .component-1 {
+            position: absolute;
+            width: 10%;
+            height: 80%;
+            left: 45%;
+            top: 10%;
+            background: white;
+        }
+
+        .no .component-2 {
+            position: absolute;
+            width: 80%;
+            height: 10%;
+            top: 45%;
+            left: 10%;
+            background: white;
+        }
+
+    </style>
+
+    <script>
+        function toggleInfoBox() {
+            var box = document.getElementById('info-box-body');
+            box.style.display = (box.style.display == 'none') ? 'inline-block' : 'none';
+        }
+
+        var toggler = document.getElementById('info-box-toggle');
+        toggler.onclick=toggleInfoBox;
+
+        function bigButtonClick() {
+            var component = document.getElementById('big-button-component');
+            component.style.opacity = 0;
+
+            var classes = document.getElementsByTagName('body')[0].classList;
+            if (classes.contains('no') || classes.contains('yes')){
+                document.getElementsByTagName('body')[0].className = 'question';
+            } else {
+                var result = Math.round(Math.random()) ? 'yes' : 'no';
+                document.getElementsByTagName('body')[0].className = result;
+            }
+
+            setTimeout(function(){
+                component.style.transition = 'opacity .6s';
+            }, 300);
+
+            setTimeout(function(){
+                component.style.opacity = 1;
+            }, 600);
+
+            setTimeout(function(){
+                component.style.transition = 'none';
+            }, 1000);
+
+        }
+
+        var bigButton = document.getElementById('big-button');
+        bigButton.onclick = bigButtonClick;
+
+    </script>
+
+</body>
+</html>
